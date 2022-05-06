@@ -8,9 +8,9 @@ typedef struct node {//노드에 구조체 선언
 } Node;
 
 int initializeBST(Node** h);//이진 탐색 트리를 초기화하는 함수
-void inorderTraversal(Node* ptr);//중위순위 
-void preorderTraversal(Node* ptr);//전위순위
-void postorderTraversal(Node* ptr);//후위순위
+void inorderTraversal(Node* ptr);//중위순회
+void preorderTraversal(Node* ptr);//전위순회
+void postorderTraversal(Node* ptr);//후위순회
 int insert(Node* head, int key); //트리에 노드 삽입
 int deleteLeafNode(Node* head, int key); //단말 노드 삭제
 Node* searchRecursive(Node* ptr, int key);//노드탐색 
@@ -78,13 +78,14 @@ int main()
 			break;
 
 		case 'i': case 'I':
-			inorderTraversal(head->left);//중위순위
+			inorderTraversal(head->left);//중위순회
 			break;
 		case 'p': case 'P':
-			preorderTraversal(head->left);//전위순위
+			preorderTraversal(head->left);//전위순회
 			break;
 		case 't': case 'T':
-			postorderTraversal(head->left);//후위순위
+			postorderTraversal(head->left);//후위순회
+
 			break;
 		default:
 			printf("\n       >>>>>   Concentration!!   <<<<<     \n");
@@ -112,28 +113,28 @@ int initializeBST(Node** h) {//이진 탐색 트리 초기화
 
 
 
-void inorderTraversal(Node* ptr)//중위순위
+void inorderTraversal(Node* ptr)//중위순회
 {
 	if(ptr) {
-		inorderTraversal(ptr->left);//ptr 노드의 왼쪽, 오른쪽 모두 중위순위함수 호출을 통해 값 넣기
+		inorderTraversal(ptr->left);//ptr 노드의 왼쪽, 오른쪽 모두 중회순회함수 호출을 통해 값 넣기
 		printf(" [%d] ", ptr->key);
 		inorderTraversal(ptr->right);
 	}
 }
 
-void preorderTraversal(Node* ptr)//전위순위
+void preorderTraversal(Node* ptr)//전위순회
 {
 	if(ptr) {
 		printf(" [%d] ", ptr->key);
-		preorderTraversal(ptr->left);//ptr 노드의 왼쪽, 오른쪽 모두 전위순위함수 호출을 통해 값 넣기
+		preorderTraversal(ptr->left);//ptr 노드의 왼쪽, 오른쪽 모두 전회순회함수 호출을 통해 값 넣기
 		preorderTraversal(ptr->right);
 	}
 }
 
-void postorderTraversal(Node* ptr)//후위순위
+void postorderTraversal(Node* ptr)//후위순회
 {
 	if(ptr) {
-		postorderTraversal(ptr->left);//ptr 노드의 왼쪽, 오른쪽 모두 후위순위함수 호출을 통해 값 넣기
+		postorderTraversal(ptr->left);//ptr 노드의 왼쪽, 오른쪽 모두 후위순회함수 호출을 통해 값 넣기
 		postorderTraversal(ptr->right);
 		printf(" [%d] ", ptr->key);
 	}
