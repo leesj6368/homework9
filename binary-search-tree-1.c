@@ -195,7 +195,7 @@ int deleteLeafNode(Node* head, int key)//단말 노드 삭제
 	}
 
 	/* head->left is the root */
-	Node* ptr = head->left;
+	Node* ptr = head->left;//head 노드의 left가 루트이다
 
 
 	/* we have to move onto children nodes,
@@ -232,10 +232,10 @@ int deleteLeafNode(Node* head, int key)//단말 노드 삭제
 		 * then the new node has to be inserted into the right subtree;
 		 * otherwise the left subtree.
 		 */
-		if(ptr->key < key)
-			ptr = ptr->right;
+		if(ptr->key < key)//현재 노드의 키값이 입력값보다 작으면
+			ptr = ptr->right;//새로운 노드가 오른쪽 서브트리로 삽입됨
 		else
-			ptr = ptr->left;
+			ptr = ptr->left;//아니라면 새로운 노드가 왼쪽 서브트리로 삽입됨
 
 
 	}
