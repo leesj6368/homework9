@@ -298,7 +298,7 @@ int freeBST(Node* head)//이진탐색트리 해제
 
 	Node* p = head->left;//head의 left를 노드 p에 대입한뒤
 
-	freeNode(p);//p를 해제하고
+	freeNode(p);
 
 	free(head);//head를 해제한다
 	return 1;
